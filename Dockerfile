@@ -6,7 +6,7 @@ WORKDIR /usr/src/app
 
 COPY . /usr/src/app
 
-VOLUME fluig_dashboard
+VOLUME fluig
 
 RUN npm install -g @angular/cli@18
 

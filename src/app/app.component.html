@@ -1,7 +1,8 @@
 <po-page-default p-title="Dashboard Fluig">
-  <div class="container flex flex-col gap-10">
+  <div class="flex flex-col gap-10">
     <div class="po-row">
-      <div class="po-lg-4">
+
+      <div class="po-lg-4 po-sm-12">
         <div class="card flex flex-col gap-5 border border-gray-200 rounded-md p-2 bg-white">
           <div class="card-header po-lg-12 flex items-center gap-3">
             <div class="bg-red-500 w-8 h-8 rounded-full text-white justify-center flex items-center text-xl">
@@ -12,8 +13,8 @@
     
           <div class="card-body po-row">
             <div class="po-lg-9">
-              <p class="po-font-text-bold text-3xl text-green-600 p-0">Operacional</p>
-              <p class="po-font-text text-gray-500">O servidor está online e operando normalmente</p>
+              <p class="po-font-text-bold text-3xl text-green-600 p-0 leading-10">Operacional</p>
+              <p class="po-font-text text-gray-500 leading-tight">O servidor está online e operando normalmente</p>
             </div>
             <div class="po-lg-3 flex justify-center">
               <div class="h-16 w-16 bg-green-600 rounded-full text-white flex justify-center items-center text-4xl">
@@ -23,16 +24,82 @@
           </div>
         </div>
       </div>
+
+      <div class="po-offset-lg-2 po-offset-xl-2 po-xl-2 po-lg-2 po-md-6 po-sm-12">
+        <div class="card h-44 flex flex-col justify-between border border-gray-200 rounded-md p-2 bg-white">
+          <div class="card-header po-lg-12 flex items-center gap-3">
+            <div class="bg-blue-500 w-8 h-8 rounded-full text-white justify-center flex items-center text-xl">
+              <i class="ph ph-hard-drive-disk"></i>
+            </div>
+            <p class="po-font-text-bold text-blue-500">Disco</p>
+          </div>
+    
+          <div class="card-body po-row gap-6">
+            <div class="po-lg-12">
+              <p class="po-font-text text-gray-400 text-sm leading-tight">Usado</p>
+              <p class="po-font-text-bold text-2xl leading-tight">174.11 GB</p>
+              <p class="po-font-text text-gray-500 text-sm leading-tight">de 222.96 GB</p>
+            </div>
+            <div class="po-lg-12">
+              <po-progress [p-value]="75"></po-progress>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="po-lg-2">
+        <div class="card h-44 flex flex-col justify-between border border-gray-200 rounded-md p-2 bg-white">
+          <div class="card-header po-lg-12 flex items-center gap-3">
+            <div class="bg-amber-500 w-8 h-8 rounded-full text-white justify-center flex items-center text-xl">
+              <i class="ph ph-memory"></i>
+            </div>
+            <p class="po-font-text-bold text-amber-500">Memória</p>
+          </div>
+    
+          <div class="card-body po-row gap-6">
+            <div class="po-lg-12">
+              <p class="po-font-text text-gray-400 text-sm leading-tight">Usado</p>
+              <p class="po-font-text-bold text-2xl leading-tight">174.11 GB</p>
+              <p class="po-font-text text-gray-400 text-sm leading-tight">de 222.96 GB</p>
+            </div>
+            <div class="po-lg-12">
+              <po-progress [p-value]="75"></po-progress>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="po-lg-2">
+        <div class="card h-44 flex flex-col justify-between border border-gray-200 rounded-md p-2 bg-white">
+          <div class="card-header po-lg-12 flex items-center gap-3">
+            <div class="bg-rose-500 w-8 h-8 rounded-full text-white justify-center flex items-center text-xl">
+              <i class="ph ph-database"></i>
+            </div>
+            <p class="po-font-text-bold text-rose-500">Banco de Dados</p>
+          </div>
+    
+          <div class="card-body po-row gap-6">
+            <div class="po-lg-12">
+              <p class="po-font-text text-gray-400 text-sm leading-tight">Tamanho</p>
+              <p class="po-font-text-bold text-2xl leading-tight">174.11 GB</p>
+            </div>
+            <div class="po-lg-12">
+              <po-progress [p-value]="75"></po-progress>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
     </div>
   
     <div class="po-row">
       <div class="po-lg-3">
-        <p class="po-font-subtitle text-xl text-gray-700">Serviços</p>
+        <p class="po-font-subtitle text-base text-gray-700">Serviços</p>
         <ul class="border rounded-md p-3">
           <li class="flex gap-10 justify-between py-1">
-            <div>
-              <p class="po-font-text text-gray-500">Serviço Licenças</p>
-            </div>
+            <p class="po-font-text text-gray-500">Serviço Licenças</p>
+            
             <div class="flex items-center gap-3">
               <p class="text-green-700 po-font-text-small-bold po-font-text-uppercase">Operacional</p>
               <div class="w-2 h-2 rounded-full bg-green-700"></div>
@@ -40,9 +107,7 @@
           </li>
   
           <li class="flex gap-10 justify-between  py-1">
-            <div>
-              <p class="po-font-text text-gray-500">Analytics</p>
-            </div>
+            <p class="po-font-text text-gray-500">Analytics</p>
             <div class="flex items-center gap-3">
               <p class="text-green-700 po-font-text-small-bold po-font-text-uppercase">Operacional</p>
               <div class="w-2 h-2 rounded-full bg-green-700"></div>
@@ -50,9 +115,7 @@
           </li>
   
           <li class="flex gap-10 justify-between py-1">
-            <div>
-              <p class="po-font-text text-gray-500">Serviço E-mail</p>
-            </div>
+            <p class="po-font-text text-gray-500">Serviço E-mail</p>
             <div class="flex items-center gap-3">
               <p class="text-green-700 po-font-text-small-bold po-font-text-uppercase">Operacional</p>
               <div class="w-2 h-2 rounded-full bg-green-700"></div>
@@ -60,9 +123,7 @@
           </li>
   
           <li class="flex gap-10 justify-between py-1">
-            <div>
-              <p  class="po-font-text text-gray-500">Serviço Solr</p>
-            </div>
+            <p  class="po-font-text text-gray-500">Serviço Solr</p>
             <div class="flex items-center gap-3">
               <p class="text-blue-700 po-font-text-small-bold po-font-text-uppercase">Não utilizado</p>
               <div class="w-2 h-2 rounded-full bg-blue-700"></div>
@@ -70,9 +131,7 @@
           </li>
   
           <li class="flex gap-10 justify-between py-1">
-            <div>
-              <p class="po-font-text text-gray-500">Fluig Viewer</p>
-            </div>
+            <p class="po-font-text text-gray-500">Fluig Viewer</p>
             <div class="flex items-center gap-3">
               <p class="text-green-700 po-font-text-small-bold po-font-text-uppercase">Operacional</p>
               <div class="w-2 h-2 rounded-full bg-green-700"></div>
@@ -80,9 +139,7 @@
           </li>
   
           <li class="flex gap-10 justify-between py-1">
-            <div>
-              <p class="po-font-text text-gray-500">Open Office</p>
-            </div>
+            <p class="po-font-text text-gray-500">Open Office</p>
             <div class="flex items-center gap-3">
               <p class="text-green-700 po-font-text-small-bold po-font-text-uppercase">Operacional</p>
               <div class="w-2 h-2 rounded-full bg-green-700"></div>
@@ -90,9 +147,7 @@
           </li>
   
           <li class="flex gap-10 justify-between py-1">
-            <div>
-              <p class="po-font-text text-gray-500">Fluig Realtime</p>
-            </div>
+            <p class="po-font-text text-gray-500">Fluig Realtime</p>
             <div class="flex items-center gap-3">
               <p class="text-green-700 po-font-text-small-bold po-font-text-uppercase">Operacional</p>
               <div class="w-2 h-2 rounded-full bg-green-700"></div>
@@ -100,9 +155,7 @@
           </li>
   
           <li class="flex gap-10 justify-between py-1">
-            <div>
-              <p class="po-font-text text-gray-500">MS Office</p>
-            </div>
+            <p class="po-font-text text-gray-500">MS Office</p>
             <div class="flex items-center gap-3 justify-end">
               <p class="text-red-700 po-font-text-small-bold po-font-text-uppercase">Falha</p>
               <div class="w-2 h-2 rounded-full bg-red-700"></div>
@@ -110,6 +163,8 @@
           </li>
         </ul>
       </div>
+
+      
       
     </div>
   </div>
