@@ -1,116 +1,153 @@
 <po-page-default p-title="Dashboard Fluig">
-  <div class="container flex flex-col gap-10">
+  <div class="flex flex-col gap-10">
     <div class="po-row">
-      <div class="po-lg-4">
-        <div class="card flex flex-col gap-5 border border-gray-200 rounded-md p-2 bg-white">
-          <div class="card-header po-lg-12 flex items-center gap-3">
-            <div class="bg-red-500 w-8 h-8 rounded-full text-white justify-center flex items-center text-xl">
-              <i class="ph ph-heartbeat"></i>
+
+      <div class="po-lg-4 po-sm-12">
+        <card-monitor-large></card-monitor-large>
+      </div>
+
+      <div class="po-lg-5 po-sm-12">
+        <div class="h-44 flex flex-col gap-5 border border-gray-200 rounded-md p-2 bg-white">
+          <div class="po-lg-12 flex items-center gap-3">
+            <div class="bg-slate-500 w-8 h-8 rounded-full text-white justify-center flex items-center text-xl">
+              <i class="ph ph-Server"></i>
             </div>
-            <p class="po-font-text-bold text-red-500">Status</p>
+            <p class="po-font-text-bold text-slate-500">Servidor</p>
           </div>
-    
-          <div class="card-body po-row">
-            <div class="po-lg-9">
-              <p class="po-font-text-bold text-3xl text-green-600 p-0">Operacional</p>
-              <p class="po-font-text text-gray-500">O servidor está online e operando normalmente</p>
-            </div>
-            <div class="po-lg-3 flex justify-center">
-              <div class="h-16 w-16 bg-green-600 rounded-full text-white flex justify-center items-center text-4xl">
-                <i class="ph ph-wifi-high"></i>
+      
+          <div class="flex flex-col">
+            <div class="po-lg-12 flex flex-wrap gap-x-9 gap-y-5">
+              <div class="flex gap-2">
+                <div class="text-slate-500 justify-center flex text-4xl">
+                  <i class="ph ph-cards-three"></i>
+                </div>
+                <div>
+                  <p class="po-font-text-small text-sm leading-tight">Processador</p>
+                  <p class="po-font-text-small-bold text-sm leading-tight">{{statistics.coreSize}} core</p>
+                </div>
+              </div>
+              <div class="flex gap-2">
+                <div class="text-slate-500 justify-center flex text-4xl">
+                  <i class="ph ph-memory"></i>
+                </div>
+                <div>
+                  <p class="po-font-text-small text-sm leading-tight">Memória</p>
+                  <p class="po-font-text-small-bold text-sm leading-tight">{{statistics.memorySize.total}}</p>
+                </div>
+              </div>
+              <div class="flex gap-2">
+                <div class="text-slate-500 justify-center flex text-4xl">
+                  <i class="ph ph-hard-drive-disk"></i>
+                </div>
+                <div>
+                  <p class="po-font-text-small text-sm leading-tight">Disco</p>
+                  <p class="po-font-text-small-bold  text-sm leading-tight">{{statistics.diskSize.total}}</p>
+                </div>
+              </div>
+              <div class="flex gap-2">
+                <div class="text-slate-500 justify-center flex text-4xl">
+                  <i class="ph ph-clock"></i>
+                </div>
+                <div>
+                  <p class="po-font-text-small text-sm leading-tight">Tempo de atividade</p>
+                  <p class="po-font-text-small-bold capitalize text-sm leading-tight">{{statistics.activiteTime}}</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      <div class="po-lg-3 po-sm-12">
+        <div class="h-44 flex flex-col gap-5 border border-gray-200 rounded-md p-2 bg-white">
+          <div class="po-lg-12 flex items-center gap-3">
+            <div class="bg-slate-500 w-8 h-8 rounded-full text-white justify-center flex items-center text-xl">
+              <i class="ph ph-database"></i>
+            </div>
+            <p class="po-font-text-bold text-slate-500">Banco de Dados</p>
+          </div>
+      
+          <div class="flex flex-col">
+            <div class="po-lg-12 flex flex-col gap-x-9 gap-y-5">
+              <div class="flex gap-2">
+                <div>
+                  <p class="po-font-text-small text-sm leading-tight">Nome</p>
+                  <p class="po-font-text-small-bold text-sm leading-tight">{{statistics.database.name}}</p>
+                </div>
+              </div>
+              <div class="flex gap-2">
+                <div>
+                  <p class="po-font-text-small text-sm leading-tight">Versão</p>
+                  <p class="po-font-text-small-bold text-sm leading-tight">{{statistics.database.version}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   
     <div class="po-row">
+
+      <div class="po-lg-2 po-md-6 po-sm-12">
+        <card-monitor 
+            icon="ph ph-hard-drive-disk" 
+            color="bg-blue-500" 
+            titulo="Disco" 
+            textColor="text-blue-500"
+            [info]="statistics.diskSize.used"
+            infoSecond="Usado"
+            [infoThird]="'de ' + statistics.diskSize.total"
+            [percent]="statistics.diskSize.percent">
+        </card-monitor>
+      </div>
+
+      <div class="po-lg-2 po-md-6 po-sm-12">
+        <card-monitor 
+            icon="ph ph-memory" 
+            color="bg-amber-500" 
+            titulo="Memória" 
+            textColor="text-amber-500"
+            [info]="statistics.memorySize.used"
+            infoSecond="Usado"
+            [infoThird]="'de ' + statistics.memorySize.total"
+            [percent]="statistics.memorySize.percent">
+        </card-monitor>
+      </div>
+
+      <div class="po-lg-2 po-md-6 po-sm-12">
+        <card-monitor 
+            icon="ph ph-users-three" 
+            color="bg-rose-500" 
+            titulo="Usuários" 
+            textColor="text-rose-500"
+            [info]="statistics.userSize"
+            infoSecond="Total"
+            infoThird="Número de sessões">
+        </card-monitor>
+      </div>
+      
       <div class="po-lg-3">
-        <p class="po-font-subtitle text-xl text-gray-700">Serviços</p>
+        <p class="po-font-subtitle text-base text-gray-700">Serviços</p>
         <ul class="border rounded-md p-3">
-          <li class="flex gap-10 justify-between py-1">
-            <div>
-              <p class="po-font-text text-gray-500">Serviço Licenças</p>
+          <li class="flex gap-10 justify-between py-2" *ngFor="let item of items">
+            <p class="po-font-text text-gray-500 capitalize">{{item.name}}</p>
+            
+            <div class="flex items-center gap-3" *ngIf="(item.status == 'OK' || item.status == 'FAILURE'); else OtherContent">
+                <p class="text-green-700 po-font-text-small-bold po-font-text-uppercase" [ngClass]="(item.status == 'OK') ? 'text-green-700' : 'text-red-700'">{{(item.status == 'OK') ? 'Operacional' : 'Falha'}}</p>
+                <div class="w-2 h-2 rounded-full bg-green-700" [ngClass]="(item.status == 'OK') ? 'bg-green-700' : 'bg-red-700'"></div>
             </div>
-            <div class="flex items-center gap-3">
-              <p class="text-green-700 po-font-text-small-bold po-font-text-uppercase">Operacional</p>
-              <div class="w-2 h-2 rounded-full bg-green-700"></div>
-            </div>
-          </li>
-  
-          <li class="flex gap-10 justify-between  py-1">
-            <div>
-              <p class="po-font-text text-gray-500">Analytics</p>
-            </div>
-            <div class="flex items-center gap-3">
-              <p class="text-green-700 po-font-text-small-bold po-font-text-uppercase">Operacional</p>
-              <div class="w-2 h-2 rounded-full bg-green-700"></div>
-            </div>
-          </li>
-  
-          <li class="flex gap-10 justify-between py-1">
-            <div>
-              <p class="po-font-text text-gray-500">Serviço E-mail</p>
-            </div>
-            <div class="flex items-center gap-3">
-              <p class="text-green-700 po-font-text-small-bold po-font-text-uppercase">Operacional</p>
-              <div class="w-2 h-2 rounded-full bg-green-700"></div>
-            </div>
-          </li>
-  
-          <li class="flex gap-10 justify-between py-1">
-            <div>
-              <p  class="po-font-text text-gray-500">Serviço Solr</p>
-            </div>
-            <div class="flex items-center gap-3">
-              <p class="text-blue-700 po-font-text-small-bold po-font-text-uppercase">Não utilizado</p>
-              <div class="w-2 h-2 rounded-full bg-blue-700"></div>
-            </div>
-          </li>
-  
-          <li class="flex gap-10 justify-between py-1">
-            <div>
-              <p class="po-font-text text-gray-500">Fluig Viewer</p>
-            </div>
-            <div class="flex items-center gap-3">
-              <p class="text-green-700 po-font-text-small-bold po-font-text-uppercase">Operacional</p>
-              <div class="w-2 h-2 rounded-full bg-green-700"></div>
-            </div>
-          </li>
-  
-          <li class="flex gap-10 justify-between py-1">
-            <div>
-              <p class="po-font-text text-gray-500">Open Office</p>
-            </div>
-            <div class="flex items-center gap-3">
-              <p class="text-green-700 po-font-text-small-bold po-font-text-uppercase">Operacional</p>
-              <div class="w-2 h-2 rounded-full bg-green-700"></div>
-            </div>
-          </li>
-  
-          <li class="flex gap-10 justify-between py-1">
-            <div>
-              <p class="po-font-text text-gray-500">Fluig Realtime</p>
-            </div>
-            <div class="flex items-center gap-3">
-              <p class="text-green-700 po-font-text-small-bold po-font-text-uppercase">Operacional</p>
-              <div class="w-2 h-2 rounded-full bg-green-700"></div>
-            </div>
-          </li>
-  
-          <li class="flex gap-10 justify-between py-1">
-            <div>
-              <p class="po-font-text text-gray-500">MS Office</p>
-            </div>
-            <div class="flex items-center gap-3 justify-end">
-              <p class="text-red-700 po-font-text-small-bold po-font-text-uppercase">Falha</p>
-              <div class="w-2 h-2 rounded-full bg-red-700"></div>
-            </div>
+            <ng-template #OtherContent >
+              <div class="flex items-center gap-3">
+                <p class="text-blue-700 po-font-text-small-bold po-font-text-uppercase">Não utilizado</p>
+                <div class="w-2 h-2 rounded-full bg-blue-700"></div>
+              </div>
+            </ng-template>
           </li>
         </ul>
       </div>
-      
+
     </div>
   </div>
   
