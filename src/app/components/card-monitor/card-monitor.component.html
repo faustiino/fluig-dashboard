@@ -1,0 +1,19 @@
+<div class="h-44 flex flex-col justify-between border border-gray-200 rounded-md p-2 bg-white">
+    <div class="po-lg-12 flex items-center gap-3">
+        <div class="w-8 h-8 rounded-full text-white justify-center flex items-center text-xl" [ngClass]="color">
+            <i [class]="icon"></i>
+        </div>
+        <p class="po-font-text-bold" [ngClass]="textColor">{{titulo}}</p>
+    </div>
+
+    <div class="po-row gap-6">
+        <div class="po-lg-12">
+            <p class="po-font-text text-gray-400 text-sm leading-tight">{{infoSecond}}</p>
+            <p class="po-font-text-bold text-2xl leading-tight">{{info}}</p>
+            <p class="po-font-text text-gray-500 text-sm leading-tight" *ngIf="infoThird">{{infoThird}}</p>
+        </div>
+        <div class="po-lg-12">
+            <po-progress [p-value]="percent" *ngIf="percent"></po-progress>
+        </div>
+    </div>
+</div>
